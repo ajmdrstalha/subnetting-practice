@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subnetting Practice</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <h1>Subnetting Practice</h1>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="about.html" class="nav__link">About</a>
+        <a href="privacy.html" class="nav__link">Privacy</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </nav>
+      <p>Find the network address, subnet mask, broadcast address, and wildcard mask for the given IPv4 address and subnet (CIDR).</p>
+    </header>
+
+    <main class="card">
+      <section class="controls">
+        <div class="control">
+          <label for="difficultySelect">Difficulty</label>
+          <select id="difficultySelect">
+            <option value="easy">Easy (/24–/29)</option>
+            <option value="medium">Medium (/20–/23)</option>
+            <option value="hard">Hard (/16–/19)</option>
+          </select>
+        </div>
+        <div class="control">
+          <label class="toggle">
+            <input type="checkbox" id="timerToggle" />
+            <span>Timer Mode (100s)</span>
+          </label>
+          <div class="timer" id="timerDisplay">100</div>
+        </div>
+      </section>
+
+      <section class="problem">
+        <div class="problem__row">
+          <div>
+            <div class="label">IPv4 Address</div>
+            <div class="value" id="ipAddress">—</div>
+          </div>
+          <div>
+            <div class="label">Subnet (CIDR)</div>
+            <div class="value" id="cidrDisplay">—</div>
+          </div>
+        </div>
+      </section>
+
+      <form id="answerForm" class="form">
+        <div class="form__row">
+          <label for="networkInput">Network Address</label>
+          <input id="networkInput" type="text" placeholder="e.g., 192.168.1.0" required />
+        </div>
+
+        <div class="form__row">
+          <label for="maskInput">Subnet Mask</label>
+          <input id="maskInput" type="text" placeholder="e.g., 255.255.255.0" required />
+        </div>
+
+        <div class="form__row">
+          <label for="broadcastInput">Broadcast Address</label>
+          <input id="broadcastInput" type="text" placeholder="e.g., 192.168.1.255" required />
+        </div>
+
+        <div class="form__row">
+          <label for="wildcardInput">Wildcard Mask</label>
+          <input id="wildcardInput" type="text" placeholder="e.g., 0.0.0.255" required />
+        </div>
+
+        <div class="form__actions">
+          <button type="submit" class="btn btn--primary">Check Answer</button>
+          <button type="button" class="btn btn--ghost" id="newProblemBtn">New Problem</button>
+          <button type="button" class="btn btn--ghost" id="resetTimerBtn">Reset Timer</button>
+        </div>
+      </form>
+
+      <section class="result" id="resultSection" aria-live="polite"></section>
+
+      <section class="explanation" id="explanationSection">
+        <div class="explain-grid" id="explainGrid" hidden>
+          <div class="explain-item">
+            <div class="label">Network Address</div>
+            <div class="value mono" id="expNetwork">—</div>
+          </div>
+          <div class="explain-item">
+            <div class="label">Subnet Mask</div>
+            <div class="value mono" id="expMask">—</div>
+          </div>
+          <div class="explain-item">
+            <div class="label">Broadcast Address</div>
+            <div class="value mono" id="expBroadcast">—</div>
+          </div>
+          <div class="explain-item">
+            <div class="label">Wildcard Mask</div>
+            <div class="value mono" id="expWildcard">—</div>
+          </div>
+        </div>
+
+        <div class="explain-text" id="expText" hidden></div>
+      </section>
+
+      <section class="score">
+        <div class="score__item">
+          <span class="label">Score</span>
+          <span class="value" id="scoreValue">0</span>
+        </div>
+        <div class="score__item">
+          <span class="label">Attempted</span>
+          <span class="value" id="attemptedValue">0</span>
+        </div>
+        <div class="score__item">
+          <span class="label">Accuracy</span>
+          <span class="value" id="accuracyValue">0%</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app__footer">
+      <small>Tip: Answers must be valid IPv4 dotted-decimal addresses.</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
